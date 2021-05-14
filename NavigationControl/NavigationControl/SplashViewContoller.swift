@@ -6,7 +6,7 @@ class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = .green
         view.addSubview(activityIndicator)
         activityIndicator.frame = view.bounds
         activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.4)
@@ -20,10 +20,10 @@ class SplashViewController: UIViewController {
             
             if UserDefaults.standard.bool(forKey: "LOGGED_IN") {
                 // navigate to protected page
-                AppDelegate.shared.rootViewController.switchToMainScreen()
+                SceneDelegate.shared.rootViewController.switchToMainScreen()
             } else {
                 // navigate to login screen
-                AppDelegate.shared.rootViewController.switchToLogout()
+                SceneDelegate.shared.rootViewController.switchToLogout()
             }
         }
     }

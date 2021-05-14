@@ -16,6 +16,6 @@ class MainViewController: UIViewController {
         // clear the user session (example only, not for the production)
         UserDefaults.standard.set(false, forKey: "LOGGED_IN")
         // navigate to the Main Screen
-        AppDelegate.shared.rootViewController.switchToLogout()
+        SceneDelegate.shared.rootViewController.switchToLogout()
     }
 }

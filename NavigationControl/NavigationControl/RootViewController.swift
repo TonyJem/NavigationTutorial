@@ -18,7 +18,7 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemGray2
+        view.backgroundColor = .systemPink
         print("🟢 viewDidLoad")
         
         addChild(current)
@@ -38,7 +38,6 @@ class RootViewController: UIViewController {
         current.willMove(toParent: nil)
         current.view.removeFromSuperview()
         current.removeFromParent()
-        
         current = new
     }
     
@@ -51,8 +50,7 @@ class RootViewController: UIViewController {
     private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
         current.willMove(toParent: nil)
         addChild(new)
-        
-        transition(from: current, to: new, duration: 0.3, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
+        transition(from: current, to: new, duration: 2, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
         }) { completed in
             self.current.removeFromParent()
             new.didMove(toParent: self)
@@ -68,10 +66,9 @@ class RootViewController: UIViewController {
     }
     
     private func animateDismissTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
-        //       let initialFrame = CGRect(x: -view.bounds.width, y: 0, width: view.bounds.width, height: view.bounds.height)
         current.willMove(toParent: nil)
         addChild(new)
-        transition(from: current, to: new, duration: 0.3, options: [], animations: {
+        transition(from: current, to: new, duration: 2, options: [], animations: {
             new.view.frame = self.view.bounds
         }) { completed in
             self.current.removeFromParent()
