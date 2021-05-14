@@ -41,7 +41,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-    
-    
+}
+
+extension SceneDelegate {
+   static var shared: SceneDelegate {
+      return UIApplication.shared.delegate as! SceneDelegate
+   }
+var rootViewController: RootViewController {
+      return window!.rootViewController as! RootViewController
+   }
 }
 
