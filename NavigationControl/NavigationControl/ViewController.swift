@@ -6,5 +6,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        view.backgroundColor = .systemGray2
+        print("🟢 viewDidLoad")
     }
 }
