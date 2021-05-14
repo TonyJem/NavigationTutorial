@@ -7,8 +7,8 @@ class RootViewController: UIViewController {
     private var current: UIViewController
     
     init() {
-       self.current = SplashViewController()
-       super.init(nibName: nil, bundle: nil)
+        self.current = SplashViewController()
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -17,7 +17,7 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemGray2
         print("🟢 viewDidLoad")
         
@@ -40,5 +40,24 @@ class RootViewController: UIViewController {
         current.removeFromParent()
         
         current = new
+    }
+    
+    func switchToMainScreen() {
+        let mainViewController = MainViewController()
+        let mainScreen = UINavigationController(rootViewController: mainViewController)
+        animateFadeTransition(to: mainScreen)
+    }
+    
+    private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
+        current.willMove(toParent: nil)
+        addChild(new)
+        
+        transition(from: current, to: new, duration: 0.3, options: [.transitionCrossDissolve, .curveEaseOut], animations: {
+        }) { completed in
+            self.current.removeFromParent()
+            new.didMove(toParent: self)
+            self.current = new
+            completion?()
+        }
     }
 }
