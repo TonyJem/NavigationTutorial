@@ -5,7 +5,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.lightGray // to visually distinguish the protected part
+        view.backgroundColor = .purple // to visually distinguish the protected part
         title = "Main Screen"
         let logoutButton = UIBarButtonItem(title: "Log Out", style: .plain, target: self, action: #selector(logout))
         navigationItem.setLeftBarButton(logoutButton, animated: true)
@@ -16,6 +16,6 @@ class MainViewController: UIViewController {
         // clear the user session (example only, not for the production)
         UserDefaults.standard.set(false, forKey: "LOGGED_IN")
         // navigate to the Main Screen
-        SceneDelegate.shared.rootViewController.switchToLogout()
+        AppDelegate.shared.rootViewController.switchToLogout()
     }
 }

@@ -20,10 +20,10 @@ class SplashViewController: UIViewController {
             
             if UserDefaults.standard.bool(forKey: "LOGGED_IN") {
                 // navigate to protected page
-                SceneDelegate.shared.rootViewController.switchToMainScreen()
+                AppDelegate.shared.rootViewController.switchToMainScreen()
             } else {
                 // navigate to login screen
-                SceneDelegate.shared.rootViewController.switchToLogout()
+                AppDelegate.shared.rootViewController.switchToLogout()
             }
         }
     }
