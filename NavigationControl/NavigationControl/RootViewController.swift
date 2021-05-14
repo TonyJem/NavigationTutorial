@@ -2,7 +2,7 @@
 // https://stasost.medium.com/ios-root-controller-navigation-3625eedbbff
 import UIKit
 
-class ViewController: UIViewController {
+class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
